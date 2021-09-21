@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MenuTabFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.example.pizzabuilder.views.PizzaMenuView
+            android:id="@+id/bigCheese"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action="@string/make"
+            app:description="Extra cheese. Nothing else."
+            app:name="Big Cheese" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:background="@color/divider" />
+
+        <com.example.pizzabuilder.views.PizzaMenuView
+            android:id="@+id/peperoni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action="@string/make"
+            app:description="Generous amount of the best quality peperoni. Everyone's favorite. "
+            app:name="Classic Peperoni" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:background="@color/divider" />
+
+        <com.example.pizzabuilder.views.PizzaMenuView
+            android:id="@+id/meatLovers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action="@string/make"
+            app:description="Peperoni, bacon, and sausage meat in one pizza."
+            app:name="Meat Lovers" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:background="@color/divider" />
+
+        <com.example.pizzabuilder.views.PizzaMenuView
+            android:id="@+id/chicken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action="@string/make"
+            app:description="Hot and chicken-y."
+            app:name="Buffalo Chicken" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:background="@color/divider" />
+
+        <com.example.pizzabuilder.views.PizzaMenuView
+            android:id="@+id/veggie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action="@string/make"
+            app:description="The healthiest pizza you can find."
+            app:name="Veggie Pizza" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:background="@color/divider" />
+
+        <com.example.pizzabuilder.views.PizzaMenuView
+            android:id="@+id/hawaiian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action="@string/make"
+            app:description="Who said pineapple and pizza don't go together? Comes with chef's choice sauce."
+            app:name="Hawaiian" />
+
+    </LinearLayout>
+</ScrollView>

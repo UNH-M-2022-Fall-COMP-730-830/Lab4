@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".OrderTabFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.example.pizzabuilder.views.PizzaMenuView
+            android:id="@+id/order1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action="@string/view"
+            app:description="Large pizza with two sides."
+            app:name="Order #1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:background="@color/divider" />
+
+        <com.example.pizzabuilder.views.PizzaMenuView
+            android:id="@+id/order2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action="@string/view"
+            app:description="Medium Pizza Delivery"
+            app:name="Order #2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:background="@color/divider" />
+
+        <com.example.pizzabuilder.views.PizzaMenuView
+            android:id="@+id/order3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action="@string/view"
+            app:description="Large vegetarian pizza with three sides. Special offer"
+            app:name="Order #3" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:background="@color/divider" />
+
+        <com.example.pizzabuilder.views.PizzaMenuView
+            android:id="@+id/order4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action="@string/view"
+            app:description="Free delivery"
+            app:name="Order #4" />
+
+    </LinearLayout>
+</ScrollView>
