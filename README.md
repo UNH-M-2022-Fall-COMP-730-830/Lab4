@@ -1,8 +1,7 @@
 # Pizza Builder
 COMP 730/830 Lab 4
 
-<img src="instructions/App1.png" alt="app" width="350"/>
-<img src="instructions/App3.png" alt="app" width="350"/>
+<img src="instructions/App1.png" alt="app" width="350"/> <img src="instructions/App3.png" alt="app" width="350"/>
 
 ## Objectives
 - Learn how to use and implement Builder Design Pattern
