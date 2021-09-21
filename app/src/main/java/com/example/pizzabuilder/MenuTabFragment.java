@@ -52,48 +52,59 @@ public class MenuTabFragment extends Fragment {
     }
 
     private void makeCheesePizza() {
-        // LARGE Pizza with Extra cheese
-        Pizza pizza = new Pizza(PizzaSize.LARGE, true, false, false, false, false, false, false, false);
+        Pizza pizza = new Pizza.Builder(PizzaSize.LARGE)
+            .addExtraCheese()
+            .build();
         showPizzaDescription(pizza);
     }
 
     private void makePeperoniPizza() {
-        // SMALL Pizza with Peperoni
-        Pizza pizza = new Pizza(PizzaSize.SMALL, false, false, true, false, false, false, false, false);
+        Pizza pizza = new Pizza.Builder(PizzaSize.SMALL)
+            .addPeperoni()
+            .build();
         showPizzaDescription(pizza);
     }
 
     private void makeMeatLoversPizza() {
-        // SMALL Pizza with Peperoni + Bacon + Chicken
-        Pizza pizza = new Pizza(PizzaSize.SMALL, false, false, true, true, false, true, false, false);
+        Pizza pizza = new Pizza.Builder(PizzaSize.SMALL)
+            .addPeperoni()
+            .addBacon()
+            .build();
         showPizzaDescription(pizza);
     }
 
     private void makeChickenPizza() {
-        // MEDIUM Pizza with Chicken
-        Pizza pizza = new Pizza(PizzaSize.MEDIUM, false, false, false, false, false, true, false, false);
+        Pizza pizza = new Pizza.Builder(PizzaSize.MEDIUM)
+            .addChicken()
+            .build();
         showPizzaDescription(pizza);
     }
 
     private void makeHawaiianPizza() {
-        // MEDIUM Pizza with Pineapples + Chicken + Peppers
-        Pizza pizza = new Pizza(PizzaSize.MEDIUM, false, false, false, false, false, true, true, true);
+        Pizza pizza = new Pizza.Builder(PizzaSize.MEDIUM)
+            .addPineapples()
+            .addChicken()
+            .addPeppers()
+            .build();
         showPizzaDescription(pizza);
     }
 
     private void makeVeggiePizza() {
-        // LARGE Pizza with Peppers + Tomatoes + Mushrooms
-        Pizza pizza = new Pizza(PizzaSize.LARGE, false, true, false, false, true, false, false, true);
+        Pizza pizza = new Pizza.Builder(PizzaSize.LARGE)
+            .addPeppers()
+            .addTomatoes()
+            .addMushrooms()
+            .build();
         showPizzaDescription(pizza);
     }
 
     private void showPizzaDescription(@NonNull Pizza pizza) {
         AlertDialog alert = new AlertDialog.Builder(requireContext())
-                .setTitle("Here is Your Pizza")
-                .setMessage(pizza.getDescription())
-                .setCancelable(true)
-                .setPositiveButton("OK", (dialogInterface, i) -> dialogInterface.cancel())
-                .create();
+            .setTitle("Here is Your Pizza")
+            .setMessage(pizza.getDescription())
+            .setCancelable(true)
+            .setPositiveButton("OK", (dialogInterface, i) -> dialogInterface.cancel())
+            .create();
         alert.show();
     }
 }

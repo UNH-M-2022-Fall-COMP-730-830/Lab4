@@ -10,7 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.example.pizzabuilder.order.Coupon;
+import com.example.pizzabuilder.order.Delivery;
 import com.example.pizzabuilder.order.Order;
+import com.example.pizzabuilder.order.Side;
 import com.example.pizzabuilder.pizza.Pizza;
 import com.example.pizzabuilder.pizza.PizzaSize;
 import com.example.pizzabuilder.views.PizzaMenuView;
@@ -44,33 +47,44 @@ public class OrderTabFragment extends Fragment {
     }
 
     private void firstOrder() {
-        // LARGE Pizza with Chicken
-        Order order = new Pizza(PizzaSize.LARGE, false, false, false, false, false, true, false, false);
-        order.setSides(new String[]{"Buffalo Sauce", "Soda"});
+        Order order = new Pizza.Builder(PizzaSize.LARGE)
+            .addChicken()
+            .build();
+        order = new Side(order, "Buffalo Sauce");
+        order = new Side(order, "Soda");
         showOrderDescription(order);
     }
 
     private void secondOrder() {
-        // MEDIUM Pizza with Peperoni
-        Order order = new Pizza(PizzaSize.MEDIUM, false, false, true, false, false, false, false, false);
-        order.setDeliveryAddress("88 Commercial Street, Manchester, NH");
+        Pizza pizza = new Pizza.Builder(PizzaSize.MEDIUM)
+            .addPeperoni()
+            .build();
+        Order order = new Delivery(pizza, "88 Commercial Street, Manchester, NH");
         showOrderDescription(order);
     }
 
     private void thirdOrder() {
-        // LARGE Pizza with Mushrooms + Tomatoes + Peppers
-        Order order = new Pizza(PizzaSize.LARGE, false, true, false, false, true, false, false, true);
-        order.setSides(new String[]{"Ranch Sauce", "French Fries", "Soda"});
-        order.setCoupon(true);
+        Order order = new Pizza.Builder(PizzaSize.LARGE)
+            .addMushrooms()
+            .addTomatoes()
+            .addPeppers()
+            .build();
+        order = new Side(order, "Ranch Sauce");
+        order = new Side(order, "French Fries");
+        order = new Side(order, "Soda");
+        order = new Coupon(order);
         showOrderDescription(order);
     }
 
     private void fourthOrder() {
-        // SMALL Pizza with Bacon + Peperoni + Chicken
-        Order order = new Pizza(PizzaSize.SMALL, false, false, true, true, false, false, false, false);
-        order.setDeliveryAddress("88 Commercial Street, Manchester, NH");
-        order.setCoupon(true);
-        showOrderDescription(order);
+        Pizza pizza = new Pizza.Builder(PizzaSize.SMALL)
+            .addBacon()
+            .addPeperoni()
+            .addChicken()
+            .build();
+        Order delivery = new Delivery(pizza, "88 Commercial Street, Manchester, NH");
+        Order orderWithDiscount = new Coupon(delivery);
+        showOrderDescription(orderWithDiscount);
     }
 
     private void showOrderDescription(@NonNull Order order) {

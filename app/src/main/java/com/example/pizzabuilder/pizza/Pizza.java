@@ -2,7 +2,7 @@ package com.example.pizzabuilder.pizza;
 
 import com.example.pizzabuilder.order.Order;
 
-public class Pizza extends Order {
+public class Pizza implements Order {
     private PizzaSize size;
     private Boolean cheese;
     private Boolean tomatoes;
@@ -13,42 +13,103 @@ public class Pizza extends Order {
     private Boolean pineapples;
     private Boolean peppers;
 
-    public Pizza(PizzaSize size, Boolean cheese, Boolean tomatoes, Boolean peperoni, Boolean bacon, Boolean mushrooms, Boolean chicken, Boolean pineapples, Boolean peppers) {
-        this.size = size;
-        this.cheese = cheese;
-        this.tomatoes = tomatoes;
-        this.peperoni = peperoni;
-        this.bacon = bacon;
-        this.mushrooms = mushrooms;
-        this.chicken = chicken;
-        this.pineapples = pineapples;
-        this.peppers = peppers;
+    public Pizza(Builder builder) {
+        this.size = builder.size;
+        this.cheese = builder.cheese;
+        this.tomatoes = builder.tomatoes;
+        this.peperoni = builder.peperoni;
+        this.bacon = builder.bacon;
+        this.mushrooms = builder.mushrooms;
+        this.chicken = builder.chicken;
+        this.pineapples = builder.pineapples;
+        this.peppers = builder.peppers;
     }
 
     @Override
     public String getDescription() {
         String description = size.getDescription();
-        if (cheese)
+        if(cheese)
             description += ", cheese";
-        if (bacon)
+        if(bacon)
             description += ", bacon";
-        if (tomatoes)
+        if(tomatoes)
             description += ", tomatoes";
-        if (peperoni)
+        if(peperoni)
             description += ", peperoni";
-        if (mushrooms)
+        if(mushrooms)
             description += ", mushrooms";
-        if (chicken)
+        if(chicken)
             description += ", chicken";
-        if (pineapples)
+        if(pineapples)
             description += ", pineapples";
-        if (peppers)
+        if(peppers)
             description += ", peppers";
-        return description + super.getDescription();
+        return description;
     }
 
     @Override
     public double getPrice() {
-        return size.getPrice() + super.getPrice();
+        return size.getPrice();
+    }
+
+    public static class Builder {
+        private PizzaSize size;
+        private Boolean cheese = false;
+        private Boolean tomatoes = false;
+        private Boolean peperoni = false;
+        private Boolean bacon = false;
+        private Boolean mushrooms = false;
+        private Boolean chicken = false;
+        private Boolean pineapples = false;
+        private Boolean peppers = false;
+
+        public Builder(PizzaSize size) {
+            this.size = size;
+        }
+
+        public Builder addExtraCheese() {
+            this.cheese = true;
+            return this;
+        }
+
+        public Builder addTomatoes() {
+            this.tomatoes = true;
+            return this;
+        }
+
+        public Builder addPeperoni() {
+            this.peperoni = true;
+            return this;
+        }
+
+        public Builder addBacon() {
+            this.bacon = true;
+            return this;
+        }
+
+        public Builder addChicken() {
+            this.chicken = true;
+            return this;
+        }
+
+        public Builder addMushrooms() {
+            this.mushrooms = true;
+            return this;
+        }
+
+        public Builder addPineapples() {
+            this.pineapples = true;
+            return this;
+        }
+
+        public Builder addPeppers() {
+            this.peppers = true;
+            return this;
+        }
+
+        public Pizza build() {
+            Pizza pizza = new Pizza(this);
+            return pizza;
+        }
     }
 }
